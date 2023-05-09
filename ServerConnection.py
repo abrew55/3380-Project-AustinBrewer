@@ -21,7 +21,7 @@ def GrabAllData(connect, tname):
     temp2 = ""
     if(c == 2):
         #Column names for the info about the player
-        cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'player_';")
+        cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'cardinalsplayer_';")
         for i in cursor:
             tempN = temp
             temp = tempN + str(i)
@@ -32,10 +32,10 @@ def GrabAllData(connect, tname):
             tempN = temp2
             temp2 = tempN + str(i)
         #Column names for the info about the player
-        cursor.execute(f"SELECT * FROM player_ WHERE Fname = '{name[0]}' AND Lname = '{name[1]}';")
+        cursor.execute(f"SELECT * FROM cardinalsplayer_ WHERE Fname = '{name[0]}' AND Lname = '{name[1]}';")
     if(c == 3):
         #Column name for the info about the team
-        cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'team_';")
+        cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'nlcentralteam_';")
         for i in cursor:
             tempN = temp
             temp = tempN + str(i)
@@ -46,7 +46,7 @@ def GrabAllData(connect, tname):
             tempN = temp2
             temp2 = tempN + str(i)
         #Info about the team
-        cursor.execute(f"Select * From team_ Where symbol = '{name[1]}'")
+        cursor.execute(f"Select * From nlcentralteam_ Where symbol = '{name[1]}'")
     data.append(temp)
     for i in cursor:
         data.append(i)
